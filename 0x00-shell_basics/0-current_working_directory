@@ -1,0 +1,3 @@
+#!/bin/bash
+#Script to print current working directory
+pwd
