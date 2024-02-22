@@ -9,6 +9,6 @@ end
 text = ARGV[0]
 pattern = /School/
 #use the regx to match the text
-match_result = text.match(pattern)
+match_result = text.scan(pattern)
 #print result or an empty string if no match
-puts match_result ? match_result[0] : ''
+puts match_result.join('')
