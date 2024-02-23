@@ -8,7 +8,7 @@ end
 text = ARGV[0]
 
 #define the regex
-pattern = /\A\d{10}/
+pattern = /\A\d{10}\z/
 
 #use regex to match the text
 match_result = text.match(pattern)
