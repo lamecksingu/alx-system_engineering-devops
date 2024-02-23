@@ -8,7 +8,7 @@ end
 text = ARGV[0]
 
 #define the regex
-pattern = /h.*n/
+pattern = /^h(?!99n)(?!Hhn).*n$/
 
 #use regex to match the text
 match_result = text.match(pattern)
