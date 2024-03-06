@@ -1,0 +1,58 @@
+Explanations to some specifics about the infrastructure
+1. Server
+	The physical or virtual machine that hosts the entire web infrastructure. It ha linux OS installed
+2. Domain name (www.foobar.com)
+	The user access the website by entering www.foobar.com in their browser. The Domain Name System (DNS) translates www.foobar.com to the server's IP address(8.8.8.8)
+3. DNS Record
+	The DNS record for www.foobar.com is an A record, mapping the domain to the server's IP address.
+4. Web Server(Nginx)
+	Nginx acts as the web server handling HTTP requests. It receives requests from user and serves static content, as well as routing dynamic requests to the application server.
+5. Application Server
+	Hosts the application codebase. Nginx communicates with the application server to process dynamic content.
+6. Application files(Code base)
+	The application files resides on the application server. These files contains the website's logic, handling user requests and generating dynamic content.
+7. Database(MySQL)
+	MySQL serves as the relational database management system (RDBMS). It stores and manages the website's data, including user accounts, and conents. The application server communicates with the database to retrieve or store data.
+
+Role explanations.
+1. What is a Server:
+
+A server is a physical or virtual machine that provides services or resources to other computers (clients) in a network.
+
+2. Role of the Domain Name:
+
+The domain name is a human-readable address that maps to the server's IP address, making it easier for users to access the website.
+
+3.Type of DNS Record www is in www.foobar.com:
+
+The DNS record type for www.foobar.com is an A record, which stands for Address record. It maps a domain to an IPv4 address.
+
+4.Role of the Web Server:
+
+The web server (Nginx) handles incoming HTTP requests, serving static content and routing dynamic requests to the application server.
+
+5.Role of the Application Server:
+
+The application server hosts the code base and processes dynamic content, communicating with the web server and database as needed.
+
+6.Role of the Database:
+
+The database (MySQL) stores and manages structured data for the website, providing a way for the application to retrieve or store information.
+
+7.Communication with the User's Computer:
+
+The server communicates with the user's computer over the internet using the HTTP/HTTPS protocols. The web server and application server generate and serve HTML content, which the user's browser renders.
+
+Issues with this Infrastructure:
+
+1.Single Point of Failure (SPOF):
+
+The entire infrastructure relies on a single server. If the server fails, the website becomes inaccessible.
+
+2.Downtime During Maintenance:
+
+Deploying new code or performing maintenance requires restarting the web server, causing downtime for users.
+
+3.Limited Scalability:
+
+The infrastructure may struggle to handle a significant increase in incoming traffic. Scaling requires additional servers, load balancing, and more advanced configurations.
