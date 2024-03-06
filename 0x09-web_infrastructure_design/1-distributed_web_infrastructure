@@ -1,0 +1,39 @@
+Specifics:
+Additional Elements Explanation:
+
+Server 2 is added as a replica to distribute the load and provide high availability.
+HAproxy is added to distribute traffic and ensure that the application servers share the load effectively.
+
+Load Balancer Configuration:
+
+The load balancer uses a round-robin distribution algorithm by default.
+It evenly distributes incoming requests among the available application servers.
+
+Active-Active vs. Active-Passive Setup:
+
+The setup is Active-Active because both application servers (Server 1 and Server 2) are actively serving traffic.
+Active-Passive would mean that only one server actively serves traffic while the other is in standby.
+
+Database Primary-Replica Cluster:
+
+In a Primary-Replica cluster, the Primary node handles read and write operations, while the Replica handles read-only operations.
+This setup improves performance and provides fault tolerance in case the Primary node fails.
+
+Difference Between Primary and Replica for the Application:
+
+The application connects to the Primary node for read and write operations.
+In case of a failure or maintenance, the application can connect to the Replica for read-only operations, ensuring continuous service.
+
+Issues with this Infrastructure:
+
+Single Points of Failure (SPOF):
+
+The load balancer itself can become a single point of failure. We can consider adding redundancy or a secondary load balancer for high availability.
+Security Issues:
+
+Lack of firewall configurations and absence of HTTPS can expose the infrastructure to security threats.
+We can implement firewalls and enable HTTPS to enhance security.
+No Monitoring:
+
+Without monitoring, it's challenging to identify issues, performance bottlenecks, or potential failures.
+We can implement monitoring tools to track the health and performance of servers, load balancer, and the database.
