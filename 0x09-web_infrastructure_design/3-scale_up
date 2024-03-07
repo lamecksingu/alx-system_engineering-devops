@@ -1,0 +1,16 @@
+Specifics:
+
+Additional Elements Explanation:
+
+Load balancing with HAproxy is added to distribute incoming traffic across the web and application servers.
+The use of separate servers for web, application, and database components allows for better resource allocation, scalability, and maintenance.
+
+Load Balancer Purpose:
+
+Load balancing ensures even distribution of incoming traffic, preventing overload on any single server.
+It improves performance, scalability, and provides fault tolerance by distributing the load among multiple servers.
+
+Server Split Components:
+
+Separating components onto dedicated servers allows for better resource management and scalability.
+Isolating components enhances security and simplifies maintenance tasks.
