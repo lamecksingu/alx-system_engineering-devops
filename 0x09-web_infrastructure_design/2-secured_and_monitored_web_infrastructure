@@ -1,0 +1,43 @@
+Specifics:
+Additional Elements Explanation:
+
+Firewalls are added to control and secure incoming and outgoing traffic, limiting potential threats.
+SSL termination at the load balancer ensures encrypted communication between users and the infrastructure.
+Monitoring clients collect data for performance analysis, error tracking, and infrastructure health monitoring.
+
+Firewalls Purpose:
+
+Firewalls control access to and from servers, preventing unauthorized access and enhancing security.
+
+Traffic Served over HTTPS:
+
+HTTPS encrypts data in transit, providing confidentiality and integrity, and authenticating the server.
+
+Monitoring Purpose:
+
+Monitoring is used to track the health and performance of servers, identify issues, and analyze usage patterns.
+
+How Monitoring Tool Collects Data:
+
+Monitoring clients on each server collect data on resource usage, errors, and performance metrics.
+The monitoring tool aggregates this data for centralized analysis and reporting.
+
+Monitoring Web Server QPS:
+
+To monitor web server Queries Per Second (QPS), set up monitoring for incoming requests and track the server's responsiveness.
+
+Issues with this Infrastructure:
+SSL Termination at the Load Balancer:
+
+If SSL termination happens at the load balancer, the communication between the load balancer and backend servers is unencrypted.
+To address this, use end-to-end encryption by configuring SSL on both the load balancer and backend servers.
+
+Single MySQL Server Accepting Writes:
+
+Having only one MySQL server capable of accepting writes can be a single point of failure.
+Consider configuring a MySQL Primary-Replica cluster to distribute the load and ensure fault tolerance.
+
+Uniform Server Components:
+
+Uniform server components across servers might be a problem if there's a common vulnerability affecting all components.
+Periodically update and patch server components to address potential security vulnerabilities.
