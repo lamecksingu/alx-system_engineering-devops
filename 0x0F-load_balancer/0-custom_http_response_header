@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Update package lists and install Nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Define the custom HTTP header configuration
+header_config='
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # Add custom header X-Served-By with the hostname
+    location / {
+        add_header X-Served-By $hostname;
+        # Your other location directives here if needed
+	try_files \$uri \$uri/ =404;
+    }
+}
+'
+
+# Write the custom header configuration to a temporary file
+echo "$header_config" | sudo tee /etc/nginx/sites-available/custom-header > /dev/null
+
+# Enable the custom header configuration by creating a symlink
+sudo ln -s /etc/nginx/sites-available/custom-header /etc/nginx/sites-enabled/
+
+# Test the Nginx configuration for syntax errors
+sudo nginx -t
+
+# Reload Nginx to apply the configuration changes
+sudo systemctl reload nginx
+
+#echo "Nginx configured successfully with custom header X-Served-By"
+
