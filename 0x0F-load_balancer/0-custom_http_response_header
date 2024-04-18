@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # Update package lists and install Nginx
 sudo apt-get update
@@ -12,7 +12,7 @@ server {
 
     # Add custom header X-Served-By with the hostname
     location / {
-        add_header X-Served-By $hostname;
+        add_header X-Served-By \$host;
         # Your other location directives here if needed
 	try_files \$uri \$uri/ =404;
     }
