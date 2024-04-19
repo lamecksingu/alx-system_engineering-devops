@@ -1,5 +1,5 @@
-#!/bin/env bash
-
+#!/usr/bin/env bash
+#A script to configure a new ubuntu server acording to the requirements
 # Update package lists and install Nginx
 sudo apt-get update
 sudo apt-get install -y nginx
