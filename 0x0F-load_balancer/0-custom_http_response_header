@@ -12,7 +12,7 @@ server {
 
     # Add custom header X-Served-By with the hostname
     location / {
-        add_header X-Served-By \$host;
+        add_header X-Served-By \$hostname;
         # Your other location directives here if needed
 	try_files \$uri \$uri/ =404;
     }
