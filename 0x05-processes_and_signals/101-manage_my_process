@@ -6,12 +6,12 @@ INIT_FUNCTIONS="/lib/lsb/init-functions"
 
 #check if the file exoists
 if [ ! -e "$INIT_FUNCTIONS" ]; then
-	echo "Error: $INIT_FUNCTIONS not found." >$2
+	echo "Error: $INIT_FUNCTIONS not found." >"$2"
 	exit 1
 fi
 
 #Source the init-functions file
-. "$INIT_FUNCTIONS"
+."$INIT_FUNCTIONS"
 
 PIDFILE=/var/run/my_process.pid
 
