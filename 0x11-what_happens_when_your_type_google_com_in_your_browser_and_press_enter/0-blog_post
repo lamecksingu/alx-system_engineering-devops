@@ -1,0 +1,60 @@
+In the blink of an eye, a myriad of complex processes unfold when you type https://www.google.com into your browser and hit Enter. These processes ensure that you can seamlessly access Google's services. Let's break down the journey step by step:
+
+1. DNS Request
+Domain Name System (DNS) is akin to the phonebook of the internet. When you type https://www.google.com, your browser needs to find the corresponding IP address of Google's server. Here's what happens:
+
+DNS Query Initiation: Your browser checks its cache to see if it has recently resolved this address. If not, it queries your local DNS resolver (usually provided by your ISP).
+Recursive Query: If the local resolver doesn't have the information, it performs a series of queries, starting from the root DNS servers, then the TLD (Top Level Domain) servers for .com, and finally the authoritative DNS servers for google.com.
+IP Address Retrieval: Once the IP address (e.g., 172.217.16.196) is found, it is returned to your browser.
+
+2. TCP/IP
+Now that the IP address is known, your browser establishes a connection using the Transmission Control Protocol (TCP) over the Internet Protocol (IP).
+
+Three-Way Handshake: To establish a reliable connection, a three-step process occurs:
+SYN: Your browser sends a SYN (synchronize) packet to the server.
+SYN-ACK: The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+ACK: Your browser sends an ACK (acknowledge) packet back to the server.
+This handshake ensures that both your browser and the server are ready to communicate.
+
+3. Firewall
+As the TCP packets traverse the internet, they pass through various firewalls designed to protect networks from malicious traffic.
+
+Packet Filtering: Firewalls inspect packets based on predefined rules. Legitimate packets are allowed through, while suspicious ones are blocked.
+Stateful Inspection: Modern firewalls keep track of active connections, ensuring that only traffic associated with those connections is allowed.
+
+4. HTTPS/SSL
+Because you’re accessing a secure URL (https://), the next step is establishing a secure connection using Hypertext Transfer Protocol Secure (HTTPS).
+
+SSL/TLS Handshake: Your browser and Google's server perform a handshake to establish an encrypted connection. This involves:
+Certificate Exchange: The server presents its SSL/TLS certificate, which your browser verifies against trusted Certificate Authorities (CAs).
+Session Keys: Both parties agree on encryption keys to use for this session, ensuring data privacy and integrity.
+
+5. Load Balancer
+Once the secure connection is established, your request is forwarded to Google's infrastructure. Given the massive amount of traffic Google handles, a load balancer is used.
+
+Traffic Distribution: The load balancer distributes incoming requests across multiple servers to ensure no single server is overwhelmed.
+Health Checks: It continuously monitors the health of servers, directing traffic only to those that are functioning properly.
+
+6. Web Server
+Your request now reaches a web server within Google's data center.
+
+Request Handling: The web server (e.g., Apache, Nginx) processes the request. For static content (like images), it may directly serve the files.
+Reverse Proxy: For dynamic content, the web server acts as a reverse proxy, forwarding the request to the appropriate application server.
+
+7. Application Server
+The application server handles the business logic of your request.
+
+Dynamic Content: It processes dynamic requests, such as search queries, using server-side scripts (e.g., Python, Java, Node.js).
+Session Management: It manages user sessions, ensuring continuity and personalized experiences.
+
+8. Database
+To fetch the necessary data, the application server queries a database.
+
+Data Retrieval: The database server (e.g., MySQL, PostgreSQL) executes SQL queries to retrieve, insert, update, or delete data.
+Caching: Frequently accessed data might be cached to improve performance, reducing the load on the database server.
+
+Final Steps
+After the data is retrieved and processed, the application server sends the response back through the web server, load balancer, and finally to your browser over the secure HTTPS connection. Your browser then renders the content, and you see Google's homepage or the search results you requested.
+
+Conclusion
+The process described above happens in mere milliseconds, showcasing the incredible complexity and efficiency of modern web technologies. Understanding these steps not only demystifies the magic behind a simple URL but also highlights the importance of each component in delivering a seamless and secure web experience.
