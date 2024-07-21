@@ -50,6 +50,9 @@ file { 'Nginx default config file':
         # Add index.php to the list if you are using PHP
         index index.html index.htm index.nginx-debian.html;
         server_name _;
+
+	#Add custom response header
+	add_header X-Served-By "<%= @hostname4 %>
         location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
