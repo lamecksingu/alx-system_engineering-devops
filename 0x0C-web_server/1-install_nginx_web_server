@@ -6,6 +6,11 @@
 
 sudo apt-get -y update
 sudo apt-get -y install nginx      
+
+# Configure Nginx to serve the custom HTML file
+# Backup the default config
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null   
 echo "server {
         listen 80 default_server;  
