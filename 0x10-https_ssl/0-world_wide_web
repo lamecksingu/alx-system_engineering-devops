@@ -12,7 +12,7 @@ function display_subdomain_info() {
     if [ -z "$record" ]; then
         echo "The subdomain $subdomain does not exist."
     else
-        echo "The subdomain $subdomain is an $record_type record and points to $record"
+        echo "The subdomain $subdomain is a $record_type record and points to $record"
     fi
 }
 
