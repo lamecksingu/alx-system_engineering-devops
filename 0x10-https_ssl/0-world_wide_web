@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# Function to display information about a subdomain
+function display_subdomain_info() {
+    local domain=$1
+    local subdomain=$2
+
+    record=$(dig +short "$subdomain.$domain")
+    record_type="A"
+
+    if [ -z "$record" ]; then
+        echo "The subdomain $subdomain does not exist."
+    else
+        echo "The subdomain $subdomain is an $record_type record and points to $record"
+    fi
+}
+
+# Function to handle domain with or without specific subdomain
+function audit_domain() {
+    local domain=$1
+    local subdomain=$2
+
+    if [ -z "$subdomain" ]; then
+        # Display information for all default subdomains
+        for sub in www lb-01 web-01 web-02; do
+            display_subdomain_info "$domain" "$sub"
+        done
+    else
+        # Display information for the specified subdomain
+        display_subdomain_info "$domain" "$subdomain"
+    fi
+}
+
+# Check if the domain argument is provided
+if [ -z "$1" ]; then
+    echo "Domain name is required."
+    exit 1
+fi
+
+# Run the audit function with provided arguments
+audit_domain "$1" "$2"
